@@ -1,6 +1,6 @@
 'use strict'
-
 const axios = require('axios').default
+require('dotenv').config()
 const dataSource = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/country-report-iso-based/Vietnam/VNM/'
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
       url: dataSource,
       headers: {
         'x-rapidapi-host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com',
-        'x-rapidapi-key': '12dca90fe2mshf8d7300a9db94f2p149e46jsn68a5e807fd08'
+        'x-rapidapi-key': process.env.RABID_KEY
       }
     }).then(response => {
       res.json(response.data)
