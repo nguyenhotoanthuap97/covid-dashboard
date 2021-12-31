@@ -1,7 +1,10 @@
 const express = require('express')
+require('dotenv').config()
 const app = express()
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
+const { startSummaryCron } = require('./services/SummaryService')
+const { startVaccineCron } = require('./services/VaccineService')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -14,5 +17,8 @@ app.use((req, res) => {
 })
 
 app.listen(port)
+
+// startSummaryCron()
+startVaccineCron()
 
 console.log('Server started on: ' + port)

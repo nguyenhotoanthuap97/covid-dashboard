@@ -27,9 +27,14 @@ insertSummary = async (summary) => {
     const summaries = database.collection('summary')
     const query = { Country: 'Vietnam' }
     await summaries.deleteOne(query)
-    const result = await summaries.insertOne(summary)
-    console.log('Summary inserted!' + summary)
+    await summaries.insertOne(summary)
+    console.log('Summary inserted!')
   } finally {
     await client.close()
   }
+}
+
+module.exports = {
+  getSummary,
+  insertSummary
 }

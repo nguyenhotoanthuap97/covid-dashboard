@@ -26,23 +26,9 @@ insertVaccines = async (vaccineList) => {
     const database = client.db('covid_vaccine')
     const vaccines = database.collection('vaccine')
 
-    const bulkUpdateOps = vaccineList.map((doc) => {
-      return {
-        "updateOne": {
-          "filter": { "Country_Region": doc.Country_Region, "Date": doc.Date },
-          "update": { "$set": 
-            {
-              "Doses_admin": doc.Doses_admin,
-              "People_partially_vaccinated": doc.People_partially_vaccinated,
-              "People_fully_vaccinated": doc.People_fully_vaccinated
-            }
-          }
-        }
-      }
-    })
-
-    const result = await vaccines.bulkWrite(bulkUpdateOps)
-    console.log('Vaccines inserted!' + result)
+    await vaccines.deleteMany()
+    await vaccines.insertMany(vaccineList)
+    console.log('Vaccines inserted!')
   } finally {
     await client.close()
   }
@@ -59,4 +45,8 @@ getLatestVaccine = async () => {
   } finally {
     await client.close()
   }
+}
+
+module.exports = {
+  getVaccines, insertVaccines, getLatestVaccine
 }

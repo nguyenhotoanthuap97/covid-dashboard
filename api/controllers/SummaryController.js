@@ -1,6 +1,5 @@
 'use strict'
 const axios = require('axios').default
-require('dotenv').config()
 const dataSource = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/country-report-iso-based/Vietnam/VNM/'
 
 module.exports = {
