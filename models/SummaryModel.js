@@ -12,8 +12,7 @@ getSummary = async () => {
     const summaries = database.collection('summary')
 
     const query = { Country: 'Vietnam' }
-    const summary = await summaries.findOne(query)
-    return summary
+    return await summaries.findOne(query)
   } finally {
     await client.close()
   }

@@ -1,6 +1,6 @@
 var CronJob = require('cron').CronJob
 const axios = require('axios').default
-const summaryModel = require('../models/SummaryModel')
+const SummaryModel = require('../models/SummaryModel')
 const dataSource = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/country-report-iso-based/Vietnam/VNM/'
 
 updateSummary = () => {
@@ -12,7 +12,7 @@ updateSummary = () => {
       'x-rapidapi-key': process.env.RABID_KEY
     }
   }).then(response => {
-    summaryModel.insertSummary(response.data[0])
+    SummaryModel.insertSummary(response.data[0])
   }).catch(err => {
     console.log('error: ' + err)
     res.json('ERROR: ' + err)
@@ -34,6 +34,11 @@ startSummaryCron = () => {
   console.log('Start summary cronjob!')
 }
 
+getSummary = () => {
+  return SummaryModel.getSummary()
+}
+
 module.exports = {
-  startSummaryCron
+  startSummaryCron,
+  getSummary
 }

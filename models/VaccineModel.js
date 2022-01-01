@@ -12,8 +12,7 @@ getVaccines = async () => {
     const vaccines = database.collection('vaccine')
 
     const query = { Country: 'Vietnam' }
-    const vaccineList = await vaccines.find(query)
-    return vaccineList
+    return await vaccines.find().toArray()
   } finally {
     await client.close()
   }
@@ -41,7 +40,7 @@ getLatestVaccine = async () => {
     const database = client.db('covid_vaccine')
     const vaccines = database.collection('vaccine')
 
-    return await vaccines.find().sort({Date: -1}).limit(1)
+    return await vaccines.find().sort({Date: -1}).limit(1).toArray()
   } finally {
     await client.close()
   }

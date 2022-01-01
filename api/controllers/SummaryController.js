@@ -1,21 +1,13 @@
-'use strict'
-const axios = require('axios').default
-const dataSource = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/country-report-iso-based/Vietnam/VNM/'
+
+const SummaryService = require('../../services/SummaryService')
 
 module.exports = {
-  get: (req, res) => {
-    axios.request({
-      method: 'GET',
-      url: dataSource,
-      headers: {
-        'x-rapidapi-host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com',
-        'x-rapidapi-key': process.env.RABID_KEY
-      }
-    }).then(response => {
-      res.json(response.data)
-    }).catch(err => {
-      console.log('error: ' + err)
+  get: async (req, res) => {
+    var summary = await SummaryService.getSummary().catch(err => {
+      console.log('Error while retrieving summary: ' + err)
       res.json('ERROR: ' + err)
     })
+
+    res.json(summary)
   }
 }

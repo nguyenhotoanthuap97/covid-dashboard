@@ -18,7 +18,7 @@ app.use((req, res) => {
 
 app.listen(port)
 
-// startSummaryCron()
+startSummaryCron()
 startVaccineCron()
 
 console.log('Server started on: ' + port)

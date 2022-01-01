@@ -1,7 +1,7 @@
 const CronJob = require('cron').CronJob
 const axios = require('axios').default
 const csvToJson = require('csvtojson')
-const vaccineModel = require('../models/VaccineModel')
+const VaccineModel = require('../models/VaccineModel')
 const dataSource = 'https://raw.githubusercontent.com/govex/COVID-19/master/data_tables/vaccine_data/global_data/time_series_covid19_vaccine_global.csv'
 
 updateVaccine = () => {
@@ -13,7 +13,7 @@ updateVaccine = () => {
       .fromString(response.data)
       .then(jsonObj => {
         vaccines = jsonObj.filter(v => v.Country_Region === 'Vietnam' )
-        vaccineModel.insertVaccines(vaccines)
+        VaccineModel.insertVaccines(vaccines)
       })
   }).catch(err => {
     console.log('error: ' + err)
@@ -36,6 +36,16 @@ startVaccineCron = () => {
   console.log('Start vaccine cronjob!')
 }
 
+getAllVaccines = () => {
+  return VaccineModel.getVaccines()
+}
+
+getLatestVaccine = () => {
+  return VaccineModel.getLatestVaccine()
+}
+
 module.exports = {
-  startVaccineCron
+  startVaccineCron,
+  getAllVaccines,
+  getLatestVaccine
 }
