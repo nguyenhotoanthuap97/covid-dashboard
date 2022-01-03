@@ -1,0 +1,76 @@
+/summary
+
+{
+  "_id": "61cf4252c4a25e53f5edc41d",
+  "id": "de1a2462-a817-4b62-839f-9c0f5f717eda",
+  "rank": 31,
+  "Country": "Vietnam",
+  "Continent": "Asia",
+  "TwoLetterSymbol": "vn",
+  "ThreeLetterSymbol": "vnm",
+  "Infection_Risk": 1.76,
+  "Case_Fatality_Rate": 1.87,
+  "Test_Percentage": 75.81,
+  "Recovery_Proporation": 78.28,
+  "TotalCases": 1731257,
+  "NewCases": 16515,
+  "TotalDeaths": 32394,
+  "NewDeaths": 226,
+  "TotalRecovered": "1355286",
+  "NewRecovered": 18642,
+  "ActiveCases": 343577,
+  "TotalTests": "74782912",
+  "Population": "98647006",
+  "one_Caseevery_X_ppl": 57,
+  "one_Deathevery_X_ppl": 3045,
+  "one_Testevery_X_ppl": 1,
+  "Deaths_1M_pop": 328,
+  "Serious_Critical": 7291,
+  "Tests_1M_Pop": 758086,
+  "TotCases_1M_Pop": 17550
+  }
+
+
+
+  /vaccines
+
+  [
+    {
+    "_id": "61cf4d93c7391086a18b00b3",
+    "Country_Region": "Vietnam",
+    "Date": "2021-03-07",
+    "Doses_admin": "0",
+    "People_partially_vaccinated": "0",
+    "People_fully_vaccinated": "0",
+    "Report_Date_String": "2021-03-07",
+    "UID": "704",
+    "Province_State": ""
+    },
+    {
+    "_id": "61cf4d93c7391086a18b00b4",
+    "Country_Region": "Vietnam",
+    "Date": "2021-03-08",
+    "Doses_admin": "377",
+    "People_partially_vaccinated": "377",
+    "People_fully_vaccinated": "0",
+    "Report_Date_String": "2021-03-08",
+    "UID": "704",
+    "Province_State": ""
+    }
+  ]
+
+
+
+
+  /vaccines/latest
+  {
+    "_id": "61cf4d93c7391086a18b01dc",
+    "Country_Region": "Vietnam",
+    "Date": "2021-12-30",
+    "Doses_admin": "148198862",
+    "People_partially_vaccinated": "77358030",
+    "People_fully_vaccinated": "56385381",
+    "Report_Date_String": "2021-12-31",
+    "UID": "704",
+    "Province_State": ""
+  }
